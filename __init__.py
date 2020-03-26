@@ -18,9 +18,9 @@ buttons:
 	up: enlarge sun
 	dn: shrink sun
 	lf: stop growth
-	rt: spawn plasma
 
 	f:  set sun to 1
+	r:  delete closest planets
 
 '''
 
@@ -116,6 +116,10 @@ def update(dt):
 	if keys[key.F]:
 		AnimStates.state = None
 		sun.mesh.scale.xyz = 1, 1, 1
+	if keys[key.R]:
+		for child in sun.children[:3]:
+			child.position = 1000, 1000, 1000
+
 
 	# state controls
 	AnimStates.state = \
